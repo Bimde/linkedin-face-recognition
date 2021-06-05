@@ -17,3 +17,18 @@ bimesh_test_encoding = fr.face_encodings(bimesh_test_pic)[0]
 results = fr.compare_faces([bimesh_encoding, not_bimesh_encoding], bimesh_test_encoding)
 
 print(list(zip(["Bimesh", "Not Bimesh"], results)))
+
+jet_pic = fr.load_image_file("linkedin_data/pics/jet.jpeg")
+jet_encoding = fr.face_encodings(jet_pic)[0]
+
+not_jet_pic = fr.load_image_file("linkedin_data/pics/jazz.jpeg")
+not_jet_encoding = fr.face_encodings(not_jet_pic)[0]
+
+jet_test_pic = fr.load_image_file("test_pics/jet.jpg")
+jet_test_encoding = fr.face_encodings(jet_test_pic)[0]
+
+anotherResults = fr.compare_faces([jet_encoding, not_jet_encoding], jet_test_encoding)
+
+print(list(zip(["Jet", "Not Jet"], anotherResults)))
+
+
