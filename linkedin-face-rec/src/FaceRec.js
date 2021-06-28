@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react'
 import * as faceapi from 'face-api.js';
 
-// Note that the 
-const loadFaces = async (setFaceMatchLabel) => {
+const loadFaces = async (picId, setFaceMatchLabel) => {
   // Load models
   setFaceMatchLabel('Loading models')
-  await faceapi.nets.ssdMobilenetv1.loadFromUri('/models')
-  await faceapi.nets.faceRecognitionNet.loadFromUri('/models')
-  await faceapi.nets.faceLandmark68Net.loadFromUri('/models')
+  await faceapi.nets.ssdMobilenetv1.loadFromUri('models')
+  await faceapi.nets.faceRecognitionNet.loadFromUri('models')
+  await faceapi.nets.faceLandmark68Net.loadFromUri('models')
 
 
   // Create face matcher using reference image
@@ -28,20 +27,19 @@ const loadFaces = async (setFaceMatchLabel) => {
   const faceMatcher = new faceapi.FaceMatcher(labeledDescriptors)
 
   // Load test pic and get descriptors
-  const bimeshTestImage = 'bimesh_test_pic'
   const singleResult = await faceapi
-    .detectSingleFace(bimeshTestImage)
+    .detectSingleFace(picId)
     .withFaceLandmarks()
     .withFaceDescriptor()
 
-    setFaceMatchLabel('Creating descriptors...')
+  setFaceMatchLabel('Creating descriptors...')
 
   // Compare descriptors
   var result;
   if (singleResult) {
     const bestMatch = faceMatcher.findBestMatch(singleResult.descriptor)
     console.log(bestMatch)
-    result = "Detected person (distance): " + bestMatch.toString()
+    result = "^ Detected person (distance): " + bestMatch.toString()
   } else {
     result = "No match found"
   }
@@ -51,16 +49,15 @@ const loadFaces = async (setFaceMatchLabel) => {
 
 }
 
-function FaceRec(props) {
+function FaceRec({ picId }) {
   const [faceMatch, setFaceMatch] = useState("");
 
   useEffect(() => {
-    loadFaces(setFaceMatch)
-  }, []);
+    loadFaces(picId, setFaceMatch)
+  }, [picId]);
 
   return (
     <div>
-      <h3>FaceRec!</h3>
       <p>{faceMatch}</p>
     </div>
   );
