@@ -10,6 +10,12 @@ function App() {
       </p>
       Bimesh<br />
       <img id="bimesh_linkedin_pic" src="linkedin_data/pics/bimesh.jpeg" alt="bimesh_linkedin_pic" width="400px" height="auto"></img><br />
+      Jet<br />
+      <img id="jet_linkedin_pic" src="linkedin_data/pics/jet.jpeg" alt="jet_linkedin_pic" width="400px" height="auto"></img><br />
+      Ellen<br />
+      <img id="ellen_linkedin_pic" src="linkedin_data/pics/ellen.jpeg" alt="ellen_linkedin_pic" width="400px" height="auto"></img><br />
+      Jazz<br />
+      <img id="jazz_linkedin_pic" src="linkedin_data/pics/jazz.jpeg" alt="jazz_linkedin_pic" width="400px" height="auto"></img><br />
       <p>
         Test pictures:
       </p>
