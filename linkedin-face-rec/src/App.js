@@ -1,10 +1,14 @@
+import { Component } from 'react';
 import './App.css';
-import FaceRec from './FaceRec'
+import FaceRec from './FaceRec';
+import UploadPic from './UploadPic';
 // import {useState} from 'react'
 
-function App() {
+class App extends Component {
+  render() {
   return (
     <div className="App">
+      <UploadPic />
       <p>
         Reference pictures:
       </p>
@@ -37,6 +41,7 @@ function App() {
       <FaceRec picId="jet_test_pic" />
     </div>
   );
+  }
 }
 
 export default App;
