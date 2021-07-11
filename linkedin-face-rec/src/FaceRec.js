@@ -38,7 +38,7 @@ const loadFaces = async (picId, setStatusLabel, setFaceMatch) => {
   // Create face matcher using reference images
   setStatusLabel('Creating descriptors')
 
-  const referenceNames = ['bimesh', 'jet', 'ellen', 'jazz']
+  const referenceNames = ['bimesh', 'jet', 'ellen', 'jazz', 'komal', 'ankita', 'umair', 'anandini', 'sumedha', 'devanshu']
   const labeledDescriptors = []
 
   for (var i = 0; i < referenceNames.length; i++) {
