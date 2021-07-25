@@ -69,7 +69,7 @@ function DisplayImages(props) {
     <div>
       {picSrc && pics && <Picture id={pics[0].name} is_test={true} path_override={picSrc}/>}
       <p>{!modelsLoaded && statusLabel}</p>
-      <UploadPic setPics={setPics} />
+      {modelsLoaded && <UploadPic setPics={setPics} />}
       {picSrc && pics && <FaceRec picId={pics[0].name + "_test_pic"} is_test={true} faceMatcher={faceMatcher} />}
       {/* modelsLoaded && <p>Test pictures:</p>}
       {{modelsLoaded && <Picture id="bimesh" is_test={true} display={true} />}
