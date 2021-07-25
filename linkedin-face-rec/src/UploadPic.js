@@ -6,12 +6,20 @@ class UploadPic extends Component {
         super(props);
         this.state = { pictures: [] };
         this.onDrop = this.onDrop.bind(this);
+        this.setPics = props.setPics;
       }
     
       onDrop(pictureFiles, pictureDataURLs) {
         this.setState({
           pictures: this.state.pictures.concat(pictureFiles)
         });
+        if (pictureFiles.length === 0) {
+          this.setPics(null);
+        } else {
+          this.setPics(pictureFiles);
+        }
+        console.log("pics changed");
+        console.log(pictureFiles);
       }
     
       render() {
@@ -23,7 +31,7 @@ class UploadPic extends Component {
             fileSizeError=": File uploaded is too BIG!"
             fileTypeError=": File uploaded is not a supported file type. Please upload jpg or png only"
             onChange={this.onDrop}
-            imgExtension={[".jpg", ".png"]}
+            imgExtension={[".jpg", ".png", ".jpeg"]}
             withPreview={true}
             maxFileSize={5242880}
           />
