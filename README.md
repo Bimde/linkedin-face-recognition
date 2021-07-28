@@ -1,2 +1,2 @@
 # LinkedIn Face Recognition
-[Try it out!](bimeshdesilva.dev/linkedin-face-recognition/)
+[Try it out!](https://bimeshdesilva.dev/linkedin-face-recognition/)
